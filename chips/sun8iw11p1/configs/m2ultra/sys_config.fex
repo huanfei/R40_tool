@@ -41,21 +41,21 @@ size		= 16
 ;----------------------------------------------------------------------------------
 [power_sply]
 dcdc1_vol                  = 1003300
-dcdc2_vol                  = 1001160
+dcdc2_vol                  = 1001100
 dcdc3_vol                  = 1001100
 dcdc4_vol                  = 1100
-aldo1_vol                  = 2800
-aldo2_vol                  = 2500
+aldo1_vol                  = 1003300
+aldo2_vol                  = 1001800
 aldo3_vol                  = 1003000
 dc1sw_vol                  = 3300
 dc5ldo_vol                 = 1100
-dldo1_vol                  = 3300
+dldo1_vol                  = 1003300
 dldo2_vol                  = 3300
 dldo3_vol                  = 3300
-dldo4_vol                  = 2500
+dldo4_vol                  = 1002500
 eldo1_vol                  = 2800
 eldo2_vol                  = 1500
-eldo3_vol                  = 1200
+eldo3_vol                  = 1001200
 gpio0_vol                  = 3300
 gpio1_vol                  = 1800
 
@@ -120,7 +120,7 @@ jtag_di         = port:PB17<3><default><default><default>
 
 
 ;----------------------------------------------------------------------------------
-;
+
 ;LED support
 ;----------------------------------------------------------------------------------
 [leds]
@@ -132,7 +132,7 @@ led1_trigger		= "none"
 led2			= port:PH21<1><default><default><default>
 led2_trigger		= "none"
 led3			= port:PH22<1><default><default><default>
-led3_trigger		= "none"
+led3_trigger		= "heartbeat"
 
 ;----------------------------------------------------------------------------------
 ;
@@ -329,9 +329,9 @@ twi4_sda         = port:PI03<3><default><default><default>
 ;compatible        --- device name
 ;reg               --- device address
 ;----------------------------------------------------------------------------------
-;[twi0/twi_board0]
-;compatible        =
-;reg               =
+[twi0/twi_board0]
+compatible        = "s35390a"
+reg               = 0x30
 
 ;----------------------------------------------------------------------------------
 ;ir remote configuration
@@ -384,13 +384,13 @@ uart1_dcd        = port:PA16<7><1><default><default>
 uart1_ring       = port:PA17<7><1><default><default>
 
 [uart2]
-uart2_used       = 0
+uart2_used       = 1
 uart2_port       = 2
 uart2_type       = 4
-uart2_tx         = port:PA02<4><1><default><default>
-uart2_rx         = port:PA03<4><1><default><default>
-uart2_rts        = port:PA00<4><1><default><default>
-uart2_cts        = port:PA01<4><1><default><default>
+uart2_tx         = port:PI18<3><1><default><default>
+uart2_rx         = port:PI19<3><1><default><default>
+uart2_rts        = port:PI16<3><1><default><default>
+uart2_cts        = port:PI17<3><1><default><default>
 
 [uart2_suspend]
 uart2_tx         = port:PA02<7><1><default><default>
@@ -408,54 +408,54 @@ uart3_rts        = port:PG08<4><1><default><default>
 uart3_cts        = port:PG09<4><1><default><default>
 
 [uart3_suspend]
-uart3_tx         = port:PG06<7><1><default><default>
-uart3_rx         = port:PG07<7><1><default><default>
-uart3_rts        = port:PG08<7><1><default><default>
-uart3_cts        = port:PG09<7><1><default><default>
+uart3_tx         = port:PG06<4><1><default><default>
+uart3_rx         = port:PG07<4><1><default><default>
+uart3_rts        = port:PG08<4><1><default><default>
+uart3_cts        = port:PG09<4><1><default><default>
 
 [uart4]
-uart4_used       = 0
+uart4_used       = 1
 uart4_port       = 4
 uart4_type       = 2
 uart4_tx         = port:PG10<4><1><default><default>
-uart4_rx         = port:PG10<4><1><default><default>
+uart4_rx         = port:PG11<4><1><default><default>
 
 [uart4_suspend]
-uart4_tx         = port:PG10<7><1><default><default>
-uart4_rx         = port:PG10<7><1><default><default>
+uart4_tx         = port:PG10<4><1><default><default>
+uart4_rx         = port:PG11<4><1><default><default>
 
 [uart5]
-uart5_used       = 0
+uart5_used       = 1
 uart5_port       = 5
 uart5_type       = 2
-uart5_tx         = port:PH06<4><1><default><default>
-uart5_rx         = port:PH07<4><1><default><default>
+uart5_tx         = port:PI10<3><1><default><default>
+uart5_rx         = port:PI11<3><1><default><default>
 
 [uart5_suspend]
-uart5_tx         = port:PH06<3><1><default><default>
-uart5_rx         = port:PH07<3><1><default><default>
+uart5_tx         = port:PI10<3><1><default><default>
+uart5_rx         = port:PI11<3><1><default><default>
 
 [uart6]
-uart6_used       = 0
+uart6_used       = 1
 uart6_port       = 6
 uart6_type       = 2
-uart6_tx         = port:PA12<3><1><default><default>
-uart6_rx         = port:PA13<3><1><default><default>
+uart6_tx         = port:PI12<3><1><default><default>
+uart6_rx         = port:PI13<3><1><default><default>
 
 [uart6_suspend]
-uart6_tx         = port:PA12<7><1><default><default>
-uart6_rx         = port:PA13<7><1><default><default>
+uart6_tx         = port:PI12<3><1><default><default>
+uart6_rx         = port:PI13<3><1><default><default>
 
 [uart7]
-uart7_used       = 0
-uart7_port       = 6
+uart7_used       = 1
+uart7_port       = 7
 uart7_type       = 2
-uart7_tx         = port:PA14<3><1><default><default>
-uart7_rx         = port:PA15<3><1><default><default>
+uart7_tx         = port:PI20<3><1><default><default>
+uart7_rx         = port:PI21<3><1><default><default>
 
 [uart7_suspend]
-uart7_tx         = port:PA14<7><1><default><default>
-uart7_rx         = port:PA15<7><1><default><default>
+uart7_tx         = port:PI20<3><1><default><default>
+uart7_rx         = port:PI21<3><1><default><default>
 
 ;----------------------------------------------------------------------------------
 ;SPI controller configuration
@@ -534,7 +534,7 @@ rtp_exchange_x_y_flag = 0
 ;notice ---    tp_int_port &  tp_io_port use the same port
 ;----------------------------------------------------------------------------------
 [ctp]
-ctp_used            = 1
+ctp_used            = 0
 ctp_name	    = "ft5x"
 ctp_twi_id          = 1
 ctp_twi_addr        = 0x38
@@ -906,7 +906,7 @@ csi0_d6              	= port:PE10<3><default><default><default>
 csi0_d7              	= port:PE11<3><default><default><default>
 
 [csi0/csi0_dev0]
-csi0_dev0_used		= 1
+csi0_dev0_used		= 0
 csi0_dev0_mname         = "ov5640"
 csi0_dev0_twi_addr	= 0x78
 csi0_dev0_twi_id	= 4
@@ -917,7 +917,6 @@ csi0_dev0_stby_mode     = 0
 csi0_dev0_vflip         = 0
 csi0_dev0_hflip         = 0
 csi0_dev0_iovdd         = "csi-iovcc"
-csi0_dev0_iovdd_vol     = 2800000
 csi0_dev0_avdd          = "csi-avdd"
 csi0_dev0_avdd_vol      = 2800000
 csi0_dev0_dvdd          = "csi-dvdd"
@@ -955,7 +954,7 @@ csi1_d6              	= port:PG10<3><default><default><default>
 csi1_d7              	= port:PG11<3><default><default><default>
 
 [csi1/csi1_dev0]
-csi1_dev0_used		= 1
+csi1_dev0_used		= 0
 csi1_dev0_mname         = "ov5640"
 csi1_dev0_twi_addr	= 0x78
 csi1_dev0_twi_id	= 1
@@ -1105,7 +1104,7 @@ vdmmc="none"
 
 
 [sdc3]
-sdc3_used          = 0
+sdc3_used          = 1
 bus-width	 = 4
 sdc3_clk           = port:PI05<2><1><2><default>
 sdc3_cmd           = port:PI04<2><1><2><default>
@@ -1115,12 +1114,13 @@ sdc3_d2            = port:PI08<2><1><2><default>
 sdc3_d3            = port:PI09<2><1><2><default>
 
 cd-gpios	   =
-sunxi-power-save-mode =
+;sunxi-power-save-mode =
 sunxi-dis-signal-vol-sw =
+;mmc-cap-mmc-highspeed =  true
 ;mmc-ddr-1_8v	   =
 ;mmc-hs200-1_8v	   =
 ;mmc-hs400-1_8v	   =
-;max-frequency	   = 150000000
+max-frequency	   = 50000000
 vmmc="vcc-sdcv-p3"
 vqmmc="vcc-sdcvq33-p3"
 vdmmc="vcc-sdcvd-p3"
@@ -1215,16 +1215,16 @@ gsensor_int2        =
 [wlan]
 wlan_used                             = 1
 compatible                            = "allwinner,sunxi-wlan"
-clocks                                = "outa"
-;pinctrl-names                        = "default"
+;clocks                                = "outa"
+pinctrl-names                        = "default"
 ;bt_clk_gpio                          = port:PI12<4><0><0><0>
 wlan_power_num                        = 2
 wlan_power1                           = "vcc-wifi1"
 wlan_power2                           = "vcc-wifi2"
-wlan_io_regulator                     = "vcc-io-wifi"
-wlan_busnum                           = 1
-wlan_regon                            = port:PG10<1><1><1><0>
-wlan_hostwake                         = port:power0<0><default><default><0>
+;wlan_io_regulator                     = "vcc-io-wifi"
+wlan_busnum                           = 3
+wlan_regon                            = port:PH09<1><default><default><1>
+wlan_hostwake                         = port:PH10<0><default><default><0>
 
 ;--------------------------------------------------------------------------------
 ;bt configuration
@@ -1236,7 +1236,7 @@ wlan_hostwake                         = port:power0<0><default><default><0>
 ;status:							okay
 ;--------------------------------------------------------------------------------
 [bt]
-bt_used								= 1
+bt_used								= 0
 compatible						= "allwinner,sunxi-bt"
 clocks 								= "outa"
 pinctrl-names					= "default"
@@ -1255,7 +1255,7 @@ bt_rst_n							= port:PH12<1><1><1><0>
 ;status:							okay
 ;--------------------------------------------------------------------------------
 [btlpm]
-btlpm_used						= 1
+btlpm_used						= 0
 compatible						= "allwinner,sunxi-btlpm"
 uart_index						= 3
 bt_wake               = port:PG11<1><1><1><1>
@@ -1395,7 +1395,7 @@ daudio1_used = 0
 ;---------------------------------------------------------------------------------
 [sndcodec]
 sndcodec_used = 0x1
-jack_det_gpio = port:PH14<0><default><default><default>
+;jack_det_gpio = port:PH14<0><default><default><default>
 ;------------------------------------------------------------------------------
 [codec]
 codec_used = 0x1
