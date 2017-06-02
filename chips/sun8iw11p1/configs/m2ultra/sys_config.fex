@@ -847,11 +847,11 @@ lcd_gpio_1	    = port:PH18<1><0><2><1>
 ;pwm config
 ;----------------------------------------------------------------------------------
 [pwm0]
-pwm_used            = 1
-pwm_positive        = port:PB2<3><0><default><default>
+pwm_used            = 0
+;pwm_positive        = port:PB2<3><0><default><default>
 
 [pwm0_suspend]
-pwm_positive        = port:PB2<7><0><default><default>
+;pwm_positive        = port:PB2<7><0><default><default>
 
 ;----------------------------------------------------------------------------------
 ;hdmi configuration
@@ -1158,8 +1158,8 @@ usbc0_used          = 1
 usb_port_type       = 2
 usb_detect_type     = 1
 usb_detect_mode     = 0
-usb_id_gpio         = port:PI4<0><1><default><default>
-usb_det_vbus_gpio   = port:PI8<0><1><default><default>
+usb_id_gpio         = port:PH04<0><1><default><default>
+usb_det_vbus_gpio   = port:PH05<0><0><default><default>
 usb_drv_vbus_gpio   = "axp_ctrl"
 usb_host_init_state = 0
 usb_regulator_io    = "nocare"
@@ -1296,7 +1296,7 @@ compass_int         = port:PA11<6><1><default><default>
 [spdif]
 spdif_used      = 0
 [sndspdif]
-sndspdif_used   = 0
+sndspdif_used   = 1
 ;----------------------------------------------------------------------------------
 ;		NOTE :Make sure audiohdmi_used = 0x1,sndhdmi_used = 0x1,
 ;         if register the sound card hdmi.
@@ -1395,7 +1395,7 @@ daudio1_used = 0
 ;---------------------------------------------------------------------------------
 [sndcodec]
 sndcodec_used = 0x1
-;jack_det_gpio = port:PH14<0><default><default><default>
+;jack_det_gpio = port:PB2<0><default><default><default>
 ;------------------------------------------------------------------------------
 [codec]
 codec_used = 0x1
