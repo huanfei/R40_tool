@@ -9,7 +9,7 @@ version = "100"
 machine = "m2ultra"
 
 [platform]
-eraseflag   = 0
+eraseflag   = 1
 debug_mode = 1
 
 ;----------------------------------------------------------------------------------
@@ -329,7 +329,7 @@ twi4_sda         = port:PI03<3><default><default><default>
 ;compatible        --- device name
 ;reg               --- device address
 ;----------------------------------------------------------------------------------
-[twi0/twi_board0]
+[twi1/twi_board1]
 compatible        = "s35390a"
 reg               = 0x30
 
@@ -562,7 +562,7 @@ tkey_int            =
 ;motor configuration
 ;----------------------------------------------------------------------------------
 [motor_para]
-motor_used          = 1
+motor_used          = 0
 motor_shake         = port:power3<1><default><default><1>
 
 [nand0_para]
@@ -646,7 +646,7 @@ disp_init_enable         = 1
 disp_mode                = 0
 
 screen0_output_type      = 1
-screen0_output_mode      = 10
+screen0_output_mode      = 5
 
 screen1_output_type      = 3
 screen1_output_mode      = 4
@@ -719,7 +719,7 @@ interface               = 2
 tvd_power0              = "vcc-tvin"
 
 [tvd0]
-used                    = 1
+used                    = 0
 agc_auto_enable         = 1
 agc_manual_value        = 64
 cagc_enable             = 1
@@ -776,29 +776,29 @@ cagc_enable             = 1
 ;smart_color           90:normal lcd screen 65:retina lcd screen(9.7inch)
 ;----------------------------------------------------------------------------------
 [lcd0]
-lcd_used            = 1
+lcd_used            = 0
 
-lcd_driver_name     = "S070WV20_MIPI_RGB"
+;lcd_driver_name     = "S070WV20_MIPI_RGB"
 lcd_backlight       = 50
-lcd_if              = 4
-lcd_x               = 800
-lcd_y               = 480
-lcd_width           = 86
-lcd_height          = 154
-lcd_dclk_freq       = 20
-lcd_pwm_used        = 1
+lcd_if              = 3
+lcd_x               = 1366
+lcd_y               = 768
+lcd_width           = 344
+lcd_height          = 193
+lcd_dclk_freq       = 77
+lcd_pwm_used        = 0
 lcd_pwm_ch          = 0
-lcd_pwm_freq        = 50000
+lcd_pwm_freq        = 10000
 lcd_pwm_pol         = 1
 lcd_pwm_max_limit   = 255
-lcd_hbp             = 88
-lcd_ht              = 928
-lcd_hspw            = 48
-lcd_vbp             = 32
-lcd_vt              = 525
-lcd_vspw            = 3
+lcd_hbp             = 164
+lcd_ht              = 1610
+lcd_hspw            = 1
+lcd_vbp             = 14
+lcd_vt              = 1568
+lcd_vspw            = 1
 
-lcd_frm		    = 0
+lcd_frm		    = 1
 lcd_cmap_en	    = 0
 lcd_dsi_if	    = 0
 lcd_dsi_lane	    = 4
@@ -819,6 +819,34 @@ lcd_power           = "vcc-3v"
 lcd_gpio_0	    = port:PH17<1><0><2><1>
 lcd_gpio_1	    = port:PH18<1><0><2><1>
 ;lcd_io_regluator1   = "vcc-pd"
+lcdd0 = port:PD00<3><0><default><default>
+lcdd1 = port:PD01<3><0><default><default>
+lcdd2 = port:PD02<3><0><default><default>
+lcdd3 = port:PD03<3><0><default><default>
+lcdd4 = port:PD04<3><0><default><default>
+lcdd5 = port:PD05<3><0><default><default>
+lcdd6 = port:PD06<3><0><default><default>
+lcdd7 = port:PD07<3><0><default><default>
+lcdd8 = port:PD08<3><0><default><default>
+lcdd9 = port:PD09<3><0><default><default>
+lcdd10 = port:PD10<2><0><default><default>
+lcdd11 = port:PD11<2><0><default><default>
+lcdd12 = port:PD12<2><0><default><default>
+lcdd13 = port:PD13<2><0><default><default>
+lcdd14 = port:PD14<2><0><default><default>
+lcdd15 = port:PD15<2><0><default><default>
+lcdd16 = port:PD16<2><0><default><default>
+lcdd17 = port:PD17<2><0><default><default>
+lcdd18 = port:PD18<2><0><default><default>
+lcdd19 = port:PD19<2><0><default><default>
+lcdd20 = port:PD20<2><0><default><default>
+lcdd21 = port:PD21<2><0><default><default>
+lcdd22 = port:PD22<2><0><default><default>
+lcdd23 = port:PD23<2><0><default><default>
+lcdclk = port:PD24<2><0><default><default>
+lcdde = port:PD25<2><0><default><default>
+lcdhsync = port:PD26<2><0><default><default>
+lcdvsync = port:PD27<2><0><default><default>
 
 ;lcdd0               = port:PD00<3><0><default><default>
 ;lcdd1               = port:PD01<3><0><default><default>
@@ -890,7 +918,7 @@ hdmi_cts_compatibility = 0
 ;--------------------------------------------------------------------------------
 
 [csi0]
-csi0_used		= 1
+csi0_used		= 0
 csi0_sensor_list	= 0
 csi0_pck             	= port:PE00<3><default><default><default>
 csi0_mck           	= port:PE01<1><0><1><0>
@@ -1003,7 +1031,7 @@ tvin_channel_num    =
 ; de-interlace configuration
 ;--------------------------------------------------------------------------------
 [di]
-di_used             = 1
+di_used             = 0
 
 ;--------------------------------------------------------------------------------
 ;   SDMMC PINS MAPPING                                                          |
@@ -1035,8 +1063,8 @@ sdc0_clk           = port:PF02<2><1><2><default>
 sdc0_cmd           = port:PF03<2><1><2><default>
 sdc0_d3            = port:PF04<2><1><2><default>
 sdc0_d2            = port:PF05<2><1><2><default>
-cd-gpios           = port:PH13<6><1><2><default>
-;wp-gpios          = port:PG01<0><1><2><default>
+cd-gpios           = port:PH01<0><1><default><default>
+;wp-gpios          = port:PG01<0><1><default><default>
 ;wp-inverted       =
 ;broken-cd       =
 sunxi-power-save-mode =
@@ -1265,7 +1293,7 @@ bt_hostwake          = port:power1<0><default><default><0>
 ;gyroscope
 ;--------------------------------------------------------------------------------
 [gy_para]
-gy_used             = 1
+gy_used             = 0
 gy_twi_id           = 2
 gy_twi_addr         = 0x6a
 gy_int1             = port:PA10<6><1><default><default>
@@ -1275,7 +1303,7 @@ gy_int2             =
 ;light sensor
 ;--------------------------------------------------------------------------------
 [ls_para]
-ls_used             = 1
+ls_used             = 0
 ls_twi_id           = 2
 ls_twi_addr         = 0x23
 ls_int              = port:PA12<6><1><default><default>
@@ -1284,7 +1312,7 @@ ls_int              = port:PA12<6><1><default><default>
 ;compass
 ;--------------------------------------------------------------------------------
 [compass_para]
-compass_used        = 1
+compass_used        = 0
 compass_twi_id      = 2
 compass_twi_addr    = 0x0d
 compass_int         = port:PA11<6><1><default><default>

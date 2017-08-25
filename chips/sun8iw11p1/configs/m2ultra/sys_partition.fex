@@ -64,7 +64,7 @@ size = 16384
 ;------------------------------>mmcblk0p8/nande
 [partition]
     name         = data
-    size         = 3145728
+    size         = 4194304
     user_type    = 0x8000
 
 ;------------------------------>mmcblk0p9/nandf
@@ -83,7 +83,8 @@ size = 16384
 ;------------------------------>mmcblk0p11/nandh
 [partition]
     name         = cache
-    size         = 1572864
+    size         = 1048576
+
     user_type    = 0x8000
 
 ;------------------------------nandi, store encryptable
@@ -101,7 +102,7 @@ size = 16384
 ;------------------------------>nandk, save android and kernel panic log
 [partition]
     name         = alog
-    size         = 163840
+    size         = 1048576 
     ro           = 0
     user_type    = 0x8000
 
